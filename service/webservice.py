@@ -1,10 +1,8 @@
 from flask import Flask, jsonify, request
 from controller.chamada_controller import ChamadaController
-from repository.aluno_repository import AlunoRepository
 
-app = Flask(_name_)
-aluno_repository = AlunoRepository()
-controller = ChamadaController(aluno_repository)
+app = Flask(__name__)
+controller = ChamadaController()
 
 @app.route('/realizar_chamada', methods=['POST'])
 def realizar_chamada():
@@ -14,5 +12,5 @@ def realizar_chamada():
     result = controller.realizar_chamada(turma, horario)
     return jsonify(result)
 
-if _name_ == 'main':
+if __name__ == '__main__':
     app.run(debug=True)
