@@ -1,6 +1,7 @@
 from flask_restful import Resource
 
-from models.turma import Turma
+from models.model import Turma
+
 
 class TurmaController(Resource):
 

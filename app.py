@@ -1,7 +1,8 @@
 from flask import Flask
-from flask_restful import Api
 from flask_cors import CORS
+from flask_restful import Api
 
+from controller.aluno_controller import AlunoController
 from controller.turma_controller import TurmaController
 from models import db
 
@@ -10,10 +11,10 @@ app = Flask(__name__)
 CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = \
     'mssql+pyodbc://{usuario}:{senha}@{servidor}/{database}?driver=SQL+Server'.format(
-        usuario = 'sa',
-        senha = 'aplicando#2024guktdhg',
-        servidor = 'localhost',
-        database = 'SystemPresence'
+        usuario='sa',
+        senha='aplicando#2024guktdhg',
+        servidor='localhost',
+        database='SystemPresence'
     )
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
@@ -24,6 +25,7 @@ api = Api(app)
 
 # use api.add_resource to add the paths
 api.add_resource(TurmaController, '/turmas')
+api.add_resource(AlunoController, '/alunos')
 
 if __name__ == '__main__':
-    app.run(port=5555, debug=True)
+    app.run(port=5555, debug=False)
