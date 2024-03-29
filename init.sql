@@ -35,10 +35,7 @@ GO
 CREATE TABLE Frequencia (
 	IdFrequencia int NOT NULL PRIMARY KEY,
 	DataChamada date NOT NULL,
-	Presente BIT NOT NULL,
-	IdTurma int NOT NULL FOREIGN KEY REFERENCES Turma(IdTurma),
-	IdProfessor int NOT NULL FOREIGN KEY REFERENCES Professor(IdProfessor),
-	IdAluno int NOT NULL FOREIGN KEY REFERENCES Aluno(IdAluno)
+	Presente BIT NOT NULL
 )
 GO
 

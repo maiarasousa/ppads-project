@@ -43,3 +43,18 @@ class AlunoTurma(db.Model):
     idAlunoTurma = db.Column(db.Integer, primary_key=True)
     idAluno = db.Column(db.Integer, db.ForeignKey('Aluno.IdAluno'))
     idTurma = db.Column(db.Integer, db.ForeignKey('Turma.IdTurma'))
+
+
+class Frequencia(db.Model):
+    __tablename__ = 'Frequencia'
+
+    IdFrequencia = db.Column(db.Integer, primary_key=True, autoincrement=False)
+    DataChamada = db.Column(db.DateTime, unique=False, nullable=False)
+    Presente = db.Column(db.Boolean, unique=False, nullable=False)
+
+    def to_dict(self):
+        return {
+            'id': self.IdFrequencia,
+            'data': self.DataChamada,
+            'presente': self.Presente
+        }

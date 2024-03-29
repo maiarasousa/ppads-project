@@ -4,6 +4,8 @@ from flask_restful import Api
 
 from controller.aluno_controller import AlunoController
 from controller.turma_controller import TurmaController
+from controller.chamada_controller import ChamadaController
+
 from models import db
 
 app = Flask(__name__)
@@ -26,6 +28,7 @@ api = Api(app)
 # use api.add_resource to add the paths
 api.add_resource(TurmaController, '/turmas')
 api.add_resource(AlunoController, '/alunos')
+api.add_resource(ChamadaController, '/alunos/<int:aluno_id>/frequencia')
 
 if __name__ == '__main__':
     app.run(port=5555, debug=False)
