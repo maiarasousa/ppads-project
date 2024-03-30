@@ -21,6 +21,4 @@ class ChamadaController(Resource):
         db.session.add(novoRegistro)
         db.session.commit()
 
-        freq = Frequencia.query.get(id)
-
-        return {'frequencia': freq.to_dict()}, 201
+        return {'message': 'Chamada registrada com sucesso'}, 201

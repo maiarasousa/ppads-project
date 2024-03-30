@@ -8,5 +8,13 @@ services:
     environment:
       SA_PASSWORD: "aplicando#2024guktdhg"
       ACCEPT_EULA: "Y"
-    
+  app:
+    depends_on:
+      - sql-server-db
+    links:
+      - sql-server-db
+    build: .
+    ports:
+      - 5000:5000
+
 
