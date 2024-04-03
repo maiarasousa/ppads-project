@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Colégio Octógono</title>
+
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/sb-admin-2-custom.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon">
+                    <img src="../frontend/img/logo-1.png" alt="logo" class="responsive">
+                </div>
+                <div class="sidebar-brand-text mx-3">Colégio Octógono</div>
+            </a>
+
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item active"></li>
+
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">Menu</div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" aria-expanded="true">
+                    <i class="fas fa-fw fa-check"></i>
+                    <span>Presença</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" aria-expanded="true">
+                    <i class="fas fa-fw fa-copy"></i>
+                    <span>Relatórios</span>
+                </a>
+            </li>
+        </ul>
+
+        <div id="content" style="width: 95%;">
+            <br />
+            <div class="container-fluid">
+                <div class="alert alert-success alert-dismissible fade show" role="alert" id="message-success" hidden="true">
+                    <strong>Lista de presença salva com sucesso!</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+            </div>
+
+            <h1 class="text-center">Lista de Presença</h1>
+            <div class="container-fluid margin-top-custom">
+                <div class="text-center" id="loader" hidden="true">
+                    <div class="spinner-border" role="status"></div>
+                    <p>Carregando...</p>
+                </div>
+
+                <select onclick="populateList()" id="class-list" class="btn btn-lg">
+                    <option value="" selected>Selecione uma turma</option>
+                </select>
+
+                <select class="btn btn-lg btn-primary" aria-label="Default select example">
+                    <option selected>Horários</option>
+                    <option value="1">Início da Aula</option>
+                    <option value="2">Retorno Intervalo</option>
+                </select>
+
+                <table class="table table-striped margin-top-custom text-center">
+                    <thead>
+                        <tr style="background-color:#4e73df; color: white">
+                            <th scope="col">Nome</th>
+                            <th scope="col">Presença</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-main"></tbody>
+                </table>
+
+                <input type="hidden" id="student-data" name="student_data" value="">
+
+                <button type="button" class="btn btn-success btn-lg btn-block" id="confirm-button"
+                    onclick="sendListPresence()">Confirmar</button>
+                <button type="button" class="btn btn-outline-secondary btn-lg btn-block" data-toggle="modal"
+                    data-target="#exampleModal">Cancelar</button>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Cancelar chamada</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Tem certeza que deseja cancelar esta chamada?
+                                A informação de todos os campos serão perdidas!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-danger"
+                                    onclick="location.href='index.html'">Continuar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Colégio Octógono 2024</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/presence.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="vendor/axios/axios.min.js"></script>
+</body>
+
+</html>
