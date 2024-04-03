@@ -8,7 +8,7 @@ O **Sistema de Presença** é uma aplicação web desenvolvida para facilitar o 
 Implantação Cloud:
 - Lambda AWS
 - API Gateway AWS
-- RDS AWS
+- RDS AWS - MySQL
 - S3 Bucket AWS
 
 Desenvolvimento:
