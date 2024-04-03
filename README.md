@@ -38,4 +38,4 @@ Desenvolvimento:
 
 ## Documentação da API:
 
-[Swagger API Documentation](https://app.swaggerhub.com/apis-docs/sousa8/system-presence/2024-04-01#/default/post_postListPresence)
+[Swagger API Documentation](https://app.swaggerhub.com/apis-docs/sousa8/system-presence/2024-04-01)
