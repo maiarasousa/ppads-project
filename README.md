@@ -26,10 +26,10 @@ Desenvolvimento:
 ## Como utilizar:
 
 1. Acesse o link: [https://system-presence.s3.amazonaws.com/frontend/index.html](https://system-presence.s3.amazonaws.com/frontend/index.html)
-2. Na página inicial, clique em "Presença" no menu lateral.
-3. Selecione a turma e o horário da chamada.
-4. Marque a presença ("Sim") ou a ausência ("Não") de cada aluno.
-5. Clique em "Confirmar" para salvar a lista de presença.
+4. Na página inicial, clique em "Presença" no menu lateral.
+5. Selecione a turma e o horário da chamada.
+6. Marque a presença ("Sim") ou a ausência ("Não") de cada aluno.
+7. Clique em "Confirmar" para salvar a lista de presença.
 
 ## Opções adicionais:
 
