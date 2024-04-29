@@ -22,6 +22,8 @@ Desenvolvimento:
 ## Pré-requisitos:
 
 - Conexão à internet
+- Node
+- Python
 
 ## Como utilizar:
 
