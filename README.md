@@ -27,17 +27,27 @@ Desenvolvimento:
 
 ## Como utilizar:
 
+Funcionalidade :  Cadastro de Alunos 
 1. Acesse o link: [https://system-presence.s3.amazonaws.com/frontend/index.html](https://system-presence.s3.amazonaws.com/frontend/index.html)
-4. Na página inicial, clique em "Presença" no menu lateral.
-5. Selecione a turma e o horário da chamada.
-6. Marque a presença ("Sim") ou a ausência ("Não") de cada aluno.
-7. Clique em "Confirmar" para salvar a lista de presença.
+4. Na página inicial, clique em "Aluno" no menu lateral.
+5. Selecione a turma, informe o nome do aluno e o e-mail do responsável.
+6. Clique no botão "Cadastrar"
+7. Após isso é apresentado a mensagem "Aluno cadastrado com sucesso!"
 
-## Opções adicionais:
+Funcionalidade :  Cadastro de Professores 
+1. Acesse o link: [https://system-presence.s3.amazonaws.com/frontend/index.html](https://system-presence.s3.amazonaws.com/frontend/index.html)
+4. Na página inicial, clique em "Professor" no menu lateral.
+5. Selecione a turma, informe o nome do professor e o e-mail do professor.
+6. Clique no botão "Cadastrar"
+7. Após isso é apresentado a mensagem "Professor cadastrado com sucesso!"
 
-- **Cancelar a chamada:** clique em "Cancelar" para retornar à tela de chamada.
-- **Desistir do cancelamento:** clique em "Continuar" para voltar à página inicial.
+Funcionalidade :  Cadastro de Turmas 
+1. Acesse o link: [https://system-presence.s3.amazonaws.com/frontend/index.html](https://system-presence.s3.amazonaws.com/frontend/index.html)
+4. Na página inicial, clique em "Turmas" no menu lateral.
+5. Informe o ano e o nome da turma.
+6. Clique no botão "Cadastrar"
+7. Após isso é apresentado a mensagem "Turma cadastrada com sucesso!"
 
 ## Documentação da API:
 
-[Swagger API Documentation](https://app.swaggerhub.com/apis-docs/sousa8/system-presence/2024-04-01)
+[Swagger API Documentation](https://app.swaggerhub.com/apis-docs/sousa8/system-presence/2024-04-30)
