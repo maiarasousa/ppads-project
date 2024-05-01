@@ -5,7 +5,6 @@ def sendRequest(event):
     db = db_connection_mysql.connection()
     cursor = db.cursor()
 
-    print('Recebi um: /getStudentsClass') 
     query = f"""
         select cl.idClass,
         st.idStudent, st.nameStudent

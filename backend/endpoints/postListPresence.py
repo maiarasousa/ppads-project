@@ -6,7 +6,6 @@ def sendRequest(event):
     db = db_connection_mysql.connection()
     cursor = db.cursor()
 
-    print('Recebi um: /postListPresence')  
     listPresence = json.loads(event["body"])
     for student in listPresence:
         query = f"""

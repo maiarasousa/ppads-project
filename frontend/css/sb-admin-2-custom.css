@@ -6,3 +6,107 @@
 .margin-top-custom {
     margin-top: 2%;
 }
+
+.container_form {
+  width: 700px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  box-shadow: 1px 0px 1.2px 0px #e3e3e3;
+  border-radius: 3px;
+  padding: 1em;
+}
+
+.container_form h1 {
+  font-family: 'nunito';
+  font-size: 2.3em;
+  color: #4e73df;
+  border-bottom: 1px #f0eded solid;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.form_grupo {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.form_grupo .legenda {
+  width: 100%;
+  float: left;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.submit {
+  width: 100%;
+  float: left;
+}
+
+.submit_btn {
+  float: right; 
+  display: block;
+  padding: 5px 30px;
+  border: none;
+  outline: none;
+  background-color: #4e73df;
+  color: #fff;
+  text-shadow: 0 0 5px rgb(0, 0, 0);
+  font-family: nunito;
+  font-size: 25px;
+  font-family: 'nunito';
+  border-radius: 6px;
+  margin: 20px auto;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+footer {
+  position: flex;
+  bottom: 0;
+  width: 100%;
+}
+
+.form_grupo {
+  margin-bottom: 15px;
+  display: flex; 
+  align-items: center; 
+}
+
+.form_label {
+  width: 150px; 
+  margin-right: 10px; 
+  font-weight: bold; 
+}
+
+.form_input {
+  flex: 1; 
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16p;
+}
+
+.submit {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.submit_btn {
+  background-color: #4e73df;
+  color: #fff;
+  padding: 10px 20px;
+  border: none; 
+  border-radius: 4px;
+  cursor: pointer; 
+  font-size: 16px; 
+  font-weight: bold;
+}
+.card-text {
+  color: black;
+  font-size: 16px;
+}

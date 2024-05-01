@@ -23,7 +23,7 @@ async function getStudentsClass(idClass) {
 //====================================================
 async function postListPresence(body) {
   var url = 'https://q0jzawwz35.execute-api.us-east-1.amazonaws.com/system-presence-deploy/postListPresence'
-  var options = { method: 'POST', body: body };
+  var options = { method: 'POST', data: body };
   var response = await axios(url, options);
   return response.data;
 }
@@ -53,7 +53,7 @@ async function populateList() {
     optionsFragment.appendChild(opt);
   });
 
-  select.innerHTML = ''; 
+  select.innerHTML = '';
   select.appendChild(optionsFragment);
 
   loadingOption.remove();
@@ -81,7 +81,7 @@ async function populateTable(idClass) {
     presenceCell.scope = 'row';
 
     nameCell.textContent = student["nameStudent"];
-    
+
     const presenceRadioOptions = document.createElement('div');
     presenceRadioOptions.classList.add('form-check', 'form-check-inline');
 
@@ -129,23 +129,48 @@ async function sendListPresence() {
   var loader = document.getElementById('loader');
   loader.removeAttribute('hidden')
 
-  await new Promise(resolve => setTimeout(resolve, 5000));
+  var selectedStudents = getStudentsData();
+  var allStudentsSelected = true;
 
-  // var selectedStudents = getStudentsData();
+  const tableBody = document.getElementById('table-main');
+  const rows = tableBody.getElementsByTagName('tr');
+  for (let i = 0; i < rows.length; i++) {
+    const radioButtons = rows[i].getElementsByTagName('input');
+    let studentSelected = false;
 
-  // var stringIfy = JSON.stringify(selectedStudents);
-  // var json = JSON.parse(stringIfy);
+    for (let j = 0; j < radioButtons.length; j++) {
+      const radioButton = radioButtons[j];
+      if (radioButton.checked) {
+        studentSelected = true;
+        break;
+      }
+    }
 
-  // await postListPresence(json);
+    if (!studentSelected) {
+      allStudentsSelected = false;
+      break;
+    }
+  }
+
+  const scheduleSelect = document.getElementById('typeCalled');
+  if (!allStudentsSelected || scheduleSelect.selectedIndex === 0) {
+    alert("Por favor, selecione a presença de cada aluno e escolha um horário antes de confirmar.");
+    loader.setAttribute('hidden', 'true');
+    return;
+  }
+
+  var result = await postListPresence(JSON.stringify(selectedStudents));
 
   loader.setAttribute('hidden', 'true');
 
-  var alert = document.getElementById('message-success');
-  alert.removeAttribute('hidden')
-
-  await new Promise(resolve => setTimeout(resolve, 3000));
-
-  alert.setAttribute('hidden', 'true');
+  if(result["Message"] == 'Lista de presença salva com sucesso!'){
+    alert(result["Message"])
+    window.location.href = '../frontend/index.html';
+  }
+  else{
+    alert('Falha ao salvar lista de presença, tente novamente em alguns minutos!')
+    window.location.href = '../frontend/index.html';
+  }
 }
 
 function getStudentsData() {
@@ -158,12 +183,13 @@ function getStudentsData() {
 
     for (let j = 0; j < radioButtons.length; j++) {
       const radioButton = radioButtons[j];
-      
+
       if (radioButton.checked) {
         const studentData = {
           idStudent: radioButton.getAttribute('idStudent'),
           idClass: radioButton.getAttribute('idClass'),
           presenceStatus: (radioButton.value == 'Sim') ? 1 : 0,
+          typeCalled: document.getElementById('typeCalled').value
         };
         studentList.push(studentData);
         break;

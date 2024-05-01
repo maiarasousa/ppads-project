@@ -71,40 +71,50 @@
                 </a>
             </li>
         </ul>
-        <div id="content">
-            <div class="container-fluid margin-top-custom">
-                <img src="../frontend/img/banner.png" alt="escola" class="responsive">
-            </div>
 
-            <div class="container-fluid text-center margin-top-custom">
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-                            <img src="../frontend/img/foto-1.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p class="card-text">Arte</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="../frontend/img/foto-2.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p class="card-text">Esporte</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="../frontend/img/foto-3.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p class="card-text">Biblioteca</p>
-                            </div>
-                        </div>
-                    </div>
+        <div class="container_form">
+            <div class="container-fluid">
+                <div class="alert alert-success alert-dismissible fade show" role="alert" id="message-success" hidden="true">
+                    <strong>Turma cadastrada com sucesso!</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="message-failed" hidden="true">
+                    <strong>Falha ao cadastrar nova turma!</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="required-fields" hidden="true">
+                    <strong>Por favor, preencha todos os campos antes de submeter o formulário.</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             </div>
 
+            <div class="text-center" id="loader-id" hidden="true">
+                <div class="spinner-border" role="status"></div>
+                <p>Carregando...</p>
+            </div>
+            <h1>Cadastro de Turmas</h1>
+            <form id="create-class-id" class="form" action="#" method="post">
+                <div class="form_grupo">
+                    <label for="ano" class="form_label">Ano</label>
+                    <input type="text" name="year-scholl" class="form_input" id="year-scholl" placeholder="Ano" required>
+                </div>
+
+                <div class="form_grupo">
+                    <label for="turma" class="form_label">Nome</label>
+                    <input type="text" name="class-name" class="form_input" id="class-name" placeholder="Nome da Turma" required>
+                </div>
+
+                <div class="submit">
+                    <input type="hidden" name="acao" value="enviar">
+                    <button onclick="getClassDataForm()" name="Submit" class="submit_btn">Cadastrar</button>
+                </div>
+            </form>
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -141,7 +151,8 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="js/presence.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/class.js"></script>
     <script src="js/sb-admin-2.min.js"></script>
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="js/demo/chart-area-demo.js"></script>
