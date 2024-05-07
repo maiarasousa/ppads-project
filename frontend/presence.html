@@ -37,6 +37,29 @@
             <div class="sidebar-heading">Menu</div>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="students.html"
+                    aria-expanded="true">
+                    <i class="fas fa-fw fa-address-book"></i>
+                    <span>Aluno</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="teachers.html"
+                    aria-expanded="true">
+                    <i class="fas fa-fw fa-id-card"></i>
+                    <span>Professor</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="class.html"
+                    aria-expanded="true">
+                    <i class="fas fa-fw fa-graduation-cap"></i>
+                    <span>Turmas</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" aria-expanded="true">
                     <i class="fas fa-fw fa-check"></i>
                     <span>Presença</span>
@@ -51,15 +74,49 @@
             </li>
         </ul>
 
-        <div id="content" style="width: 95%;">
+        <div class="container_form">
             <br />
+            <div class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             <div class="container-fluid">
-                <div class="alert alert-success alert-dismissible fade show" role="alert" id="message-success" hidden="true">
+                <div class="alert alert-success alert-dismissible fade show" role="alert" id="message-success"
+                    hidden="true">
                     <strong>Lista de presença salva com sucesso!</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">&times;</span>
                     </button>
-                  </div>
+                </div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="message-failed"
+                    hidden="true">
+                    <strong>Falha ao salvar a lista de presença!</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="required-fields"
+                    hidden="true">
+                    <strong>Por favor, selecione a presença de cada aluno antes de confirmar.</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
             </div>
 
             <h1 class="text-center">Lista de Presença</h1>
@@ -69,11 +126,11 @@
                     <p>Carregando...</p>
                 </div>
 
-                <select onclick="populateList()" id="class-list" class="btn btn-lg">
+                <select onclick="populateList()" id="class-list" class="btn btn-lg btn-primary">
                     <option value="" selected>Selecione uma turma</option>
                 </select>
 
-                <select class="btn btn-lg btn-primary" aria-label="Default select example">
+                <select class="btn btn-lg btn-primary" aria-label="Default select example" id="typeCalled">
                     <option selected>Horários</option>
                     <option value="1">Início da Aula</option>
                     <option value="2">Retorno Intervalo</option>
