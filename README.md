@@ -2,7 +2,7 @@
 
 ## Descrição:
 
-O **Sistema de Presença** uma aplicação web desenvolvida para facilitar o processo de realização de chamadas em escolas. A aplicação permite que os professores registrem a presença dos alunos de forma rápida e eficiente.
+O **Sistema de Presença** é uma aplicação web desenvolvida para facilitar o processo de realização de chamadas em escolas. A aplicação permite que os professores registrem a presença dos alunos de forma rápida e eficiente.
 
 ## Tecnologias utilizadas:
 Implantação Cloud:
